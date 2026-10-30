@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10243E">
+<title>Reports | ScholarTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link href="/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="/vendor/icons/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2310243E'/%3E%3Cpath d='M50 24 14 42l36 18 28-14v22h6V42z' fill='%23F5B335'/%3E%3Cpath d='M30 58v14c0 5 9 12 20 12s20-7 20-12V58L50 68z' fill='%23F5B335'/%3E%3C/svg%3E">
+</head>
+<body class="is-loading">
+<div class="app-layout">
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation"></aside>
+  <div class="app-main">
+    <header class="topbar" id="topbar"></header>
+    <main class="app-content">
+
+<div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3 no-print"><p class="text-muted mb-0">A summary of applications and approvals across all scholarships.</p>
+  <div class="page-actions"><a class="btn btn-soft" href="/api/admin/export/applications.csv"><i class="bi bi-download me-1"></i>Export CSV</a><button class="btn btn-soft" data-print><i class="bi bi-printer me-1"></i>Print</button></div></div>
+<div class="row g-3 mb-4">
+  <div class="col-6 col-xl"><div class="kpi"><span class="kpi-icon i-sky"><i class="bi bi-people"></i></span><div><div class="num" id="rStudents">–</div><div class="lbl">Students</div></div></div></div>
+  <div class="col-6 col-xl"><div class="kpi"><span class="kpi-icon i-ink"><i class="bi bi-inboxes"></i></span><div><div class="num" id="rApps">–</div><div class="lbl">Applications</div></div></div></div>
+  <div class="col-6 col-xl"><div class="kpi"><span class="kpi-icon i-leaf"><i class="bi bi-cash-coin"></i></span><div><div class="num" id="rFunds">–</div><div class="lbl">Approved funding</div></div></div></div>
+  <div class="col-6 col-xl"><div class="kpi"><span class="kpi-icon i-teal"><i class="bi bi-percent"></i></span><div><div class="num" id="rRate">–</div><div class="lbl">Approval rate</div></div></div></div>
+  <div class="col-12 col-xl"><div class="kpi"><span class="kpi-icon i-gold"><i class="bi bi-mortarboard"></i></span><div><div class="num" id="rCgpa">–</div><div class="lbl">Average CGPA</div></div></div></div>
+</div>
+<div class="row g-4 mb-4">
+  <div class="col-lg-7"><div class="panel h-100"><div class="panel-head"><h5>Applications per month</h5></div><div class="panel-body"><div class="chart-box"><canvas id="monthChart"></canvas></div></div></div></div>
+  <div class="col-lg-5"><div class="panel h-100"><div class="panel-head"><h5>Applications by status</h5></div><div class="panel-body"><div class="chart-box"><canvas id="statusChart"></canvas></div></div></div></div>
+</div>
+<div class="row g-4">
+  <div class="col-lg-7"><div class="panel h-100"><div class="panel-head"><h5>Most applied scholarships</h5></div><div class="panel-body"><div class="chart-box"><canvas id="schChart"></canvas></div></div></div></div>
+  <div class="col-lg-5"><div class="panel h-100"><div class="panel-head"><h5>Applicants by category</h5></div><div class="panel-body"><div class="chart-box"><canvas id="catChart"></canvas></div></div></div></div>
+</div>
+<div class="panel mt-4"><div class="panel-head"><h5>Status summary</h5></div><div class="table-wrap" id="summary"></div></div>
+
+    </main>
+  </div>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/vendor/chartjs/chart.umd.min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/admin-reports.js"></script>
+</body>
+</html>

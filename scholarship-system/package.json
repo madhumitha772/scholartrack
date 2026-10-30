@@ -1,0 +1,38 @@
+{
+  "name": "scholarship-system",
+  "version": "2.0.0",
+  "description": "ScholarTrack: Scholarship Application and Tracking System (Node.js, Express, MongoDB, Bootstrap, jQuery)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node seed.js",
+    "seed:demo": "node seed.js --demo",
+    "test:mail": "node scripts/test-mail.js",
+    "reset-admin": "node scripts/reset-admin.js"
+  },
+  "keywords": [
+    "scholarship",
+    "express",
+    "mongodb",
+    "bootstrap",
+    "jquery"
+  ],
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.11.0",
+    "multer": "^2.4.0",
+    "nodemailer": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

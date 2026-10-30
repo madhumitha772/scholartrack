@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10243E">
+<title>My profile | ScholarTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link href="/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="/vendor/icons/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2310243E'/%3E%3Cpath d='M50 24 14 42l36 18 28-14v22h6V42z' fill='%23F5B335'/%3E%3Cpath d='M30 58v14c0 5 9 12 20 12s20-7 20-12V58L50 68z' fill='%23F5B335'/%3E%3C/svg%3E">
+</head>
+<body class="is-loading">
+<div class="app-layout">
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation"></aside>
+  <div class="app-main">
+    <header class="topbar" id="topbar"></header>
+    <main class="app-content">
+
+<div class="row g-4">
+  <div class="col-lg-4">
+    <div class="panel panel-pad text-center mb-4">
+      <div class="avatar mx-auto mb-3" style="width:84px;height:84px;font-size:1.9rem;font-family:var(--font-head)" id="pAvatar">–</div>
+      <h4 class="mb-0" id="pName">–</h4><div class="text-muted mb-3" id="pEmail"></div>
+      <div class="text-start"><div class="d-flex justify-content-between small fw-semibold mb-1"><span>Profile completeness</span><span id="pPercent">0%</span></div><div class="meter"><span id="pMeter" style="width:0"></span></div>
+      <div class="form-text mt-2">A complete profile gives accurate eligibility checks and pre-filled forms.</div></div>
+    </div>
+    <div class="panel panel-pad">
+      <h6 class="section-title"><i class="bi bi-shield-lock"></i>Change password</h6>
+      <form id="pwForm" novalidate>
+        <div class="mb-3"><label class="form-label" for="curPw">Current password</label><input type="password" class="form-control" id="curPw" autocomplete="current-password" required></div>
+        <div class="mb-3"><label class="form-label" for="newPw">New password</label><input type="password" class="form-control" id="newPw" autocomplete="new-password" required><div class="form-text">At least 8 characters with a letter and a number.</div></div>
+        <div class="mb-3"><label class="form-label" for="newPw2">Confirm new password</label><input type="password" class="form-control" id="newPw2" autocomplete="new-password" required></div>
+        <button class="btn btn-ink w-100" type="submit" id="pwBtn">Update password</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <form id="profileForm" novalidate>
+      <div class="panel">
+        <div class="panel-head"><h5>My profile</h5><div class="page-actions"><button class="btn btn-soft btn-sm" type="button" id="editBtn"><i class="bi bi-pencil me-1"></i>Edit profile</button><button class="btn btn-soft btn-sm d-none" type="button" id="cancelBtn">Cancel</button><button class="btn btn-primary btn-sm d-none" type="submit" id="saveBtn">Save changes</button></div></div>
+        <div class="panel-body">
+          <h6 class="section-title"><i class="bi bi-person"></i>Personal details</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6"><label class="form-label" for="name">Full name</label><input class="form-control" id="name" name="name" required></div>
+            <div class="col-md-6"><label class="form-label" for="email">Email</label><input class="form-control" id="email" name="email" disabled><div class="form-text">Email cannot be changed.</div></div>
+            <div class="col-md-6"><label class="form-label" for="phone">Phone</label><input class="form-control" id="phone" name="phone" inputmode="tel"></div>
+            <div class="col-md-6"><label class="form-label" for="dob">Date of birth</label><input type="date" class="form-control" id="dob" name="dob"></div>
+            <div class="col-md-6"><label class="form-label" for="gender">Gender</label><select class="form-select" id="gender" name="gender"><option value="">Select gender</option><option>Female</option><option>Male</option><option>Other</option></select></div>
+            <div class="col-md-6"><label class="form-label" for="state">State</label><select class="form-select" id="state" name="state" data-fill="state"></select></div>
+            <div class="col-12"><label class="form-label" for="address">Address</label><textarea class="form-control" id="address" name="address" rows="2"></textarea></div>
+          </div>
+          <h6 class="section-title"><i class="bi bi-mortarboard"></i>Academic details</h6>
+          <div class="row g-3 mb-4">
+            <div class="col-12"><label class="form-label" for="college">College</label><input class="form-control" id="college" name="college"></div>
+            <div class="col-md-6"><label class="form-label" for="course">Course</label><input class="form-control" id="course" name="course" list="courseList"><datalist id="courseList"></datalist></div>
+            <div class="col-md-6"><label class="form-label" for="department">Department</label><input class="form-control" id="department" name="department"></div>
+            <div class="col-md-6"><label class="form-label" for="year">Year of study</label><select class="form-select" id="year" name="year"><option value="">Select year</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+            <div class="col-md-6"><label class="form-label" for="cgpa">CGPA (out of 10)</label><input type="number" step="0.01" min="0" max="10" class="form-control" id="cgpa" name="cgpa"></div>
+          </div>
+          <h6 class="section-title"><i class="bi bi-wallet2"></i>Category and income</h6>
+          <div class="row g-3">
+            <div class="col-md-6"><label class="form-label" for="category">Category</label><select class="form-select" id="category" name="category" data-fill="category"></select></div>
+            <div class="col-md-6"><label class="form-label" for="familyIncome">Annual family income (₹)</label><input type="number" min="0" step="1000" class="form-control" id="familyIncome" name="familyIncome"></div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+    </main>
+  </div>
+</div>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/profile.js"></script>
+</body>
+</html>

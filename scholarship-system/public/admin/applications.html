@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10243E">
+<title>Applications | ScholarTrack</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link href="/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="/vendor/icons/bootstrap-icons.min.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2310243E'/%3E%3Cpath d='M50 24 14 42l36 18 28-14v22h6V42z' fill='%23F5B335'/%3E%3Cpath d='M30 58v14c0 5 9 12 20 12s20-7 20-12V58L50 68z' fill='%23F5B335'/%3E%3C/svg%3E">
+</head>
+<body class="is-loading">
+<div class="app-layout">
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation"></aside>
+  <div class="app-main">
+    <header class="topbar" id="topbar"></header>
+    <main class="app-content">
+
+<div class="panel panel-pad py-3 mb-3"><div class="row g-2 align-items-center">
+  <div class="col-lg-4"><div class="input-icon"><i class="bi bi-search"></i><input type="search" class="form-control" id="q" placeholder="Search student, email, ID or scholarship" aria-label="Search applications"></div></div>
+  <div class="col-sm-6 col-lg-3"><select class="form-select" id="fStatus" aria-label="Filter by status"><option value="All">All statuses</option></select></div>
+  <div class="col-sm-6 col-lg-2"><select class="form-select" id="fSort" aria-label="Sort"><option value="new">Newest first</option><option value="old">Oldest first</option><option value="cgpa">Highest CGPA</option></select></div>
+  <div class="col-lg-3 text-lg-end"><a class="btn btn-soft" href="/api/admin/export/applications.csv"><i class="bi bi-download me-1"></i>Export CSV</a></div>
+</div></div>
+<div class="panel"><div class="table-wrap" id="list"><div class="page-loading">Loading…</div></div></div>
+
+    </main>
+  </div>
+</div>
+
+<div class="modal fade" id="statusModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><form class="modal-content" id="statusForm">
+  <div class="modal-header"><h5 class="modal-title">Update application status</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+  <div class="modal-body">
+    <div class="mb-3 small text-muted" id="statusFor"></div>
+    <div class="mb-3"><label class="form-label" for="newStatus">Status</label><select class="form-select" id="newStatus"></select></div>
+    <div class="mb-0"><label class="form-label" for="remarks">Remarks for the student <span class="text-muted fw-normal">(optional)</span></label><textarea class="form-control" id="remarks" rows="3" placeholder="e.g. Income certificate is not legible. Please upload a clearer copy."></textarea><div class="form-text">The student is notified and can see these remarks.</div></div>
+  </div>
+  <div class="modal-footer"><button type="button" class="btn btn-soft" data-bs-dismiss="modal">Cancel</button><button class="btn btn-primary" type="submit" id="statusSave">Save status</button></div>
+</form></div></div><script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/admin-applications.js"></script>
+</body>
+</html>
